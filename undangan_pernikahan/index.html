@@ -1,0 +1,336 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Undangan Pernikahan | Ramon & Vara</title>
+
+    <!-- Google Fonts & FontAwesome -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Playfair+Display:ital,wght@0,400..800;1,400..800&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+
+    <!-- AOS Animation CSS -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+
+    <!-- File CSS Terpisah -->
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <!-- Canvas Partikel Soft Pink -->
+    <canvas id="particle-canvas"></canvas>
+
+    <!-- Tombol Musik Melayang -->
+    <div class="music-floating">
+      <button id="music-toggle" class="btn-music">
+        <i id="music-icon" class="fas fa-music"></i>
+      </button>
+    </div>
+
+    <!-- AUDIO: Shania Twain - From This Moment On (Instrumental / Wedding Version) -->
+    <audio id="bg-music" loop>
+      <source
+        src="https://cdn.pixabay.com/download/audio/2022/10/14/audio_9939f792cb.mp3?filename=romantic-love-story-122144.mp3"
+        type="audio/mpeg"
+      />
+    </audio>
+
+    <!-- COVER AMPLOP / MODAL PEMBUKA -->
+    <div id="welcome-modal" class="welcome-modal">
+      <div class="modal-card" data-aos="zoom-in">
+        <p class="sub-title">The Wedding Of</p>
+        <h1 class="couple-title-modal">Ramon & Vara</h1>
+        <p class="guest-label">Kepada Yth. Bapak/Ibu/Saudara/i</p>
+
+        <div class="guest-box">
+          <span id="guest-name"
+            ><i class="fas fa-envelope-open me-2"></i>Tamu Undangan</span
+          >
+        </div>
+
+        <p class="guest-note">
+          Tanpa Mengurangi Rasa Hormat, Kami Mengundang Anda Untuk Hadir Di Hari
+          Bahagia Kami.
+        </p>
+
+        <button id="open-invitation" class="btn-open">
+          <i class="fas fa-heart"></i>
+          <span>Buka Undangan</span>
+        </button>
+      </div>
+    </div>
+
+    <!-- KONTEN UTAMA -->
+    <main class="main-wrapper">
+      <!-- HERO SECTION (WAKTU & TANGGAL DI PALING ATAS) -->
+      <section class="hero-section">
+        <div data-aos="fade-down" data-aos-duration="1000">
+          <i class="fas fa-ring ring-icon"></i>
+        </div>
+
+        <p data-aos="fade-down" data-aos-delay="100" class="hero-sub">
+          The Wedding Announcement
+        </p>
+
+        <!-- NAMA MEMPELAI -->
+        <h1
+          data-aos="zoom-in"
+          data-aos-duration="1200"
+          class="couple-main-title"
+        >
+          Ramon & Vara
+        </h1>
+
+        <p data-aos="fade-up" data-aos-delay="200" class="hero-quote">
+          "From this moment on, life has begun... From this moment you are the
+          one."
+        </p>
+
+        <!-- KOTAK WAKTU & TANGGAL -->
+        <div data-aos="fade-up" data-aos-delay="300" class="event-hero-card">
+          <div class="event-header-badge">
+            <i class="far fa-calendar-alt"></i>
+            <span>Waktu & Tanggal Acara</span>
+          </div>
+
+          <h3 class="event-date-text">minggu, 31 Desember 2026</h3>
+          <p class="event-time-text">
+            <i class="far fa-clock"></i> Pukul 09.00 WIB - Selesai
+          </p>
+
+          <!-- COUNTDOWN TIMER ANIMATED -->
+          <div class="countdown-grid">
+            <div class="time-box">
+              <span id="days" class="time-num">00</span>
+              <span class="time-label">Hari</span>
+            </div>
+            <div class="time-box">
+              <span id="hours" class="time-num">00</span>
+              <span class="time-label">Jam</span>
+            </div>
+            <div class="time-box">
+              <span id="minutes" class="time-num">00</span>
+              <span class="time-label">Menit</span>
+            </div>
+            <div class="time-box">
+              <span id="seconds" class="time-num">00</span>
+              <span class="time-label">Detik</span>
+            </div>
+          </div>
+        </div>
+
+        <div
+          data-aos="fade-up"
+          data-aos-delay="400"
+          class="calendar-btn-wrapper"
+        >
+          <a
+            href="https://calendar.google.com"
+            target="_blank"
+            class="btn-calendar"
+          >
+            <i class="far fa-bell"></i> Simpan Ke Kalender
+          </a>
+        </div>
+      </section>
+
+      <!-- SECTION MEMPELAI -->
+      <section class="section-container">
+        <div class="section-title-box" data-aos="fade-up">
+          <p class="sub-header">Pasangan Mempelai</p>
+          <h2 class="section-title">Mempelai Pria & Wanita</h2>
+        </div>
+
+        <div class="couples-grid">
+          <div
+            data-aos="fade-right"
+            data-aos-duration="1000"
+            class="couple-card"
+          >
+            <div class="couple-avatar">
+              <img
+                src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80&w=400"
+                alt="Ramon"
+              />
+            </div>
+            <h3 class="couple-name">Ramon</h3>
+            <p class="couple-role">Mempelai Pria</p>
+            <div class="social-links">
+              <a href="#"><i class="fab fa-instagram"></i></a>
+            </div>
+          </div>
+
+          <div
+            data-aos="fade-left"
+            data-aos-duration="1000"
+            class="couple-card"
+          >
+            <div class="couple-avatar">
+              <img
+                src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&q=80&w=400"
+                alt="Vara"
+              />
+            </div>
+            <h3 class="couple-name">Vara</h3>
+            <p class="couple-role">Mempelai Wanita</p>
+            <div class="social-links">
+              <a href="#"><i class="fab fa-instagram"></i></a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- SECTION DETAIL ACARA -->
+      <section class="section-container">
+        <div class="section-title-box" data-aos="fade-up">
+          <p class="sub-header">Rangkaian Acara</p>
+          <h2 class="section-title">Akad & Resepsi</h2>
+        </div>
+
+        <div class="events-grid">
+          <div data-aos="flip-left" data-aos-duration="1000" class="event-card">
+            <div class="event-icon"><i class="fas fa-handshake"></i></div>
+            <h3 class="event-title">Akad Nikah</h3>
+            <p class="event-info">
+              <i class="far fa-calendar"></i> Sabtu, 24 Oktober 2026
+            </p>
+            <p class="event-subinfo">
+              <i class="far fa-clock"></i> 08.00 - 10.00 WIB
+            </p>
+            <p class="event-location">Gedung Grand Ballroom Luxury</p>
+            <p class="event-address">Jl. Protocol Utama No. 88, Jakarta</p>
+          </div>
+
+          <div
+            data-aos="flip-right"
+            data-aos-duration="1000"
+            class="event-card"
+          >
+            <div class="event-icon"><i class="fas fa-glass-cheers"></i></div>
+            <h3 class="event-title">Resepsi</h3>
+            <p class="event-info">
+              <i class="far fa-calendar"></i> Sabtu, 24 Oktober 2026
+            </p>
+            <p class="event-subinfo">
+              <i class="far fa-clock"></i> 11.00 - Selesai
+            </p>
+            <p class="event-location">Gedung Grand Ballroom Luxury</p>
+            <p class="event-address">Jl. Protocol Utama No. 88, Jakarta</p>
+          </div>
+        </div>
+
+        <div data-aos="fade-up" class="maps-wrapper">
+          <a href="https://maps.google.com" target="_blank" class="btn-maps">
+            <i class="fas fa-map-marker-alt"></i> Buka Google Maps
+          </a>
+        </div>
+      </section>
+
+      <!-- SECTION GALERI FOTO -->
+      <section class="section-container">
+        <div class="section-title-box" data-aos="fade-up">
+          <p class="sub-header">Momen Bahagia</p>
+          <h2 class="section-title">Galeri Foto</h2>
+        </div>
+
+        <div class="gallery-grid">
+          <div data-aos="zoom-in" data-aos-delay="100" class="gallery-item">
+            <img
+              src="https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&q=80&w=600"
+              alt="Gallery 1"
+            />
+          </div>
+          <div data-aos="zoom-in" data-aos-delay="200" class="gallery-item">
+            <img
+              src="https://images.unsplash.com/photo-1511285560929-80b456fea0bc?auto=format&fit=crop&q=80&w=600"
+              alt="Gallery 2"
+            />
+          </div>
+          <div data-aos="zoom-in" data-aos-delay="300" class="gallery-item">
+            <img
+              src="https://images.unsplash.com/photo-1583939003579-730e3918a45a?auto=format&fit=crop&q=80&w=600"
+              alt="Gallery 3"
+            />
+          </div>
+        </div>
+      </section>
+
+      <!-- SECTION AMPLOP DIGITAL -->
+      <section class="section-container">
+        <div class="section-title-box" data-aos="fade-up">
+          <p class="sub-header">Tanda Kasih</p>
+          <h2 class="section-title">Amplop Digital</h2>
+          <p class="gift-desc">
+            Doa restu Anda merupakan karunia terindah bagi kami. Namun jika
+            ingin memberi hadiah, Anda dapat mengirimkannya melalui:
+          </p>
+        </div>
+
+        <div class="gift-card" data-aos="zoom-in">
+          <div class="gift-header">
+            <span class="bank-name">BCA</span>
+            <i class="fas fa-credit-card"></i>
+          </div>
+          <p class="rek-label">Nomor Rekening:</p>
+          <div class="rek-box">
+            <span id="rekening" class="rek-num">1234 5678 90</span>
+            <button onclick="copyRekening()" class="btn-copy">
+              <i class="far fa-copy"></i> Salin
+            </button>
+          </div>
+          <p class="rek-owner">Atas Nama: <span>Ramon / Vara</span></p>
+        </div>
+      </section>
+
+      <!-- SECTION RSVP UCAPAN -->
+      <section class="section-container">
+        <div class="section-title-box" data-aos="fade-up">
+          <p class="sub-header">Konfirmasi Kehadiran</p>
+          <h2 class="section-title">RSVP & Ucapan</h2>
+        </div>
+
+        <form id="rsvp-form" class="rsvp-form" data-aos="fade-up">
+          <div class="form-group">
+            <label>Nama Lengkap</label>
+            <input type="text" required placeholder="Masukkan nama Anda" />
+          </div>
+
+          <div class="form-group">
+            <label>Konfirmasi Kehadiran</label>
+            <select>
+              <option value="Hadir">Hadir</option>
+              <option value="Tidak Hadir">Maaf, Tidak Bisa Hadir</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label>Pesan & Doa</label>
+            <textarea
+              rows="3"
+              placeholder="Tuliskan ucapan & doa..."
+            ></textarea>
+          </div>
+
+          <button type="submit" class="btn-submit">Kirim Ucapan</button>
+        </form>
+      </section>
+
+      <!-- FOOTER -->
+      <footer class="footer">
+        <h2 class="footer-title">Ramon & Vara</h2>
+        <p class="footer-text">Terima Kasih Atas Doa & Restu Anda</p>
+      </footer>
+    </main>
+
+    <!-- AOS & Script JS -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="script.js"></script>
+  </body>
+</html>

@@ -1,0 +1,651 @@
+/* --- RESET & VARIABLES (BIRU LANGIT & SOFT PINK) --- */
+:root {
+  --bg-sky: #e0f2fe; /* Biru langit lembut */
+  --bg-card: #ffffff; /* Putih bersih untuk card */
+  --pink-primary: #f472b6; /* Soft Pink elegan */
+  --pink-light: #fbcfe8; /* Pink muda pastel */
+  --pink-border: rgba(244, 114, 182, 0.3); /* Border pink transparan */
+  --text-dark: #1e293b; /* Teks gelap elegan */
+  --text-muted: #64748b; /* Teks abu-abu */
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: var(--bg-sky);
+  color: var(--text-dark);
+  font-family: "Plus Jakarta Sans", sans-serif;
+  overflow-x: hidden;
+  position: relative;
+}
+
+/* Canvas Partikel (Diganti warna soft pink/biru muda) */
+#particle-canvas {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+  z-index: 10;
+}
+
+/* Floating Music Button (Warna Soft Pink) */
+.music-floating {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  z-index: 50;
+}
+
+.btn-music {
+  background: var(--pink-primary);
+  color: #ffffff;
+  border: none;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 10px 25px rgba(244, 114, 182, 0.4);
+  animation: pulse-pink 2s infinite;
+}
+
+@keyframes pulse-pink {
+  0% {
+    box-shadow: 0 0 0 0 rgba(244, 114, 182, 0.7);
+  }
+  70% {
+    box-shadow: 0 0 0 15px rgba(244, 114, 182, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(244, 114, 182, 0);
+  }
+}
+
+/* COVER MODAL / TIRAI ENVELOPE */
+.welcome-modal {
+  position: fixed;
+  inset: 0;
+  background-color: #f8fafc;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  transition:
+    transform 0.8s cubic-bezier(0.77, 0, 0.175, 1),
+    opacity 0.8s ease;
+}
+
+.welcome-modal.modal-open {
+  transform: translateY(-100%);
+  opacity: 0;
+  pointer-events: none;
+}
+
+.modal-card {
+  max-width: 420px;
+  width: 100%;
+  background: var(--bg-card);
+  border: 1px solid var(--pink-border);
+  border-radius: 24px;
+  padding: 32px;
+  text-align: center;
+  box-shadow: 0 20px 40px rgba(100, 116, 139, 0.15);
+}
+
+.sub-title {
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  color: var(--pink-primary);
+  font-weight: 600;
+}
+
+.couple-title-modal {
+  font-family: "Great Vibes", cursive;
+  font-size: 56px;
+  color: var(--pink-primary);
+  margin: 10px 0;
+}
+
+.guest-label {
+  color: var(--text-muted);
+  font-size: 12px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+.guest-box {
+  margin: 20px 0;
+  padding: 12px;
+  background: #f1f5f9;
+  border-radius: 12px;
+  border: 1px solid var(--pink-border);
+}
+
+#guest-name {
+  color: var(--text-dark);
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.guest-note {
+  font-size: 12px;
+  color: var(--text-muted);
+  font-style: italic;
+  margin-bottom: 24px;
+}
+
+.btn-open {
+  width: 100%;
+  padding: 14px;
+  background: linear-gradient(135deg, #f472b6, #ec4899);
+  color: #ffffff;
+  border: none;
+  font-weight: bold;
+  border-radius: 50px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  box-shadow: 0 4px 15px rgba(244, 114, 182, 0.4);
+  transition: transform 0.3s;
+}
+
+.btn-open:hover {
+  transform: translateY(-2px);
+}
+
+/* MAIN CONTAINER */
+.main-wrapper {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 0 20px;
+  position: relative;
+  z-index: 20;
+}
+
+/* HERO SECTION */
+.hero-section {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 60px 0;
+  border-bottom: 1px solid var(--pink-border);
+}
+
+.ring-icon {
+  font-size: 36px;
+  color: var(--pink-primary);
+  margin-bottom: 16px;
+  animation: float 4s ease-in-out infinite;
+}
+
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+.hero-sub {
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 4px;
+  color: var(--pink-primary);
+  font-weight: 600;
+}
+
+.couple-main-title {
+  font-family: "Great Vibes", cursive;
+  font-size: 72px;
+  color: var(--pink-primary);
+  margin: 16px 0;
+  text-shadow: 0 5px 15px rgba(244, 114, 182, 0.2);
+}
+
+.hero-quote {
+  font-family: "Playfair Display", serif;
+  font-style: italic;
+  font-size: 14px;
+  color: var(--text-muted);
+  max-width: 480px;
+  margin-bottom: 30px;
+}
+
+/* EVENT HERO CARD (WAKTU & TANGGAL) */
+.event-hero-card {
+  width: 100%;
+  max-width: 500px;
+  background: rgba(255, 255, 255, 0.85);
+  border: 1px solid var(--pink-border);
+  border-radius: 24px;
+  padding: 24px;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 10px 30px rgba(100, 116, 139, 0.08);
+}
+
+.event-header-badge {
+  color: var(--pink-primary);
+  font-size: 12px;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  margin-bottom: 12px;
+}
+
+.event-date-text {
+  font-family: "Playfair Display", serif;
+  font-size: 26px;
+  font-weight: bold;
+  color: var(--text-dark);
+}
+
+.event-time-text {
+  color: var(--pink-primary);
+  font-size: 13px;
+  margin-top: 4px;
+  margin-bottom: 20px;
+  font-weight: 500;
+}
+
+/* COUNTDOWN GRID */
+.countdown-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
+  border-top: 1px solid var(--pink-border);
+  padding-top: 20px;
+}
+
+.time-box {
+  background: #f8fafc;
+  padding: 10px;
+  border-radius: 12px;
+  border: 1px solid var(--pink-border);
+}
+
+.time-num {
+  display: block;
+  font-size: 22px;
+  font-weight: bold;
+  color: var(--pink-primary);
+}
+
+.time-label {
+  font-size: 10px;
+  color: var(--text-muted);
+  text-transform: uppercase;
+}
+
+.calendar-btn-wrapper {
+  margin-top: 24px;
+}
+
+.btn-calendar {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 24px;
+  border-radius: 50px;
+  background: rgba(244, 114, 182, 0.15);
+  border: 1px solid var(--pink-border);
+  color: #db2777;
+  text-decoration: none;
+  font-size: 12px;
+  text-transform: uppercase;
+  font-weight: 600;
+  transition: background 0.3s;
+}
+
+.btn-calendar:hover {
+  background: var(--pink-primary);
+  color: #ffffff;
+}
+
+/* SECTION COMMON STYLES */
+.section-container {
+  padding: 80px 0;
+  border-bottom: 1px solid var(--pink-border);
+  text-align: center;
+}
+
+.sub-header {
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  color: var(--pink-primary);
+  margin-bottom: 4px;
+  font-weight: 600;
+}
+
+.section-title {
+  font-family: "Playfair Display", serif;
+  font-size: 32px;
+  font-weight: bold;
+  margin-bottom: 40px;
+  color: var(--text-dark);
+}
+
+/* COUPLES SECTION */
+.couples-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 30px;
+}
+
+.couple-card {
+  background: var(--bg-card);
+  border: 1px solid var(--pink-border);
+  padding: 30px;
+  border-radius: 24px;
+  box-shadow: 0 10px 25px rgba(100, 116, 139, 0.05);
+}
+
+.couple-avatar {
+  width: 120px;
+  height: 120px;
+  margin: 0 auto 20px;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 2px solid var(--pink-primary);
+  padding: 4px;
+}
+
+.couple-avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+.couple-name {
+  font-family: "Playfair Display", serif;
+  font-size: 28px;
+  color: var(--pink-primary);
+}
+
+.couple-role {
+  font-size: 12px;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  margin-top: 4px;
+}
+
+.social-links {
+  margin-top: 16px;
+}
+
+.social-links a {
+  color: var(--pink-primary);
+  font-size: 16px;
+}
+
+/* EVENTS SECTION */
+.events-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 24px;
+}
+
+.event-card {
+  background: var(--bg-card);
+  border: 1px solid var(--pink-border);
+  padding: 30px;
+  border-radius: 24px;
+  box-shadow: 0 10px 25px rgba(100, 116, 139, 0.05);
+}
+
+.event-icon {
+  width: 48px;
+  height: 48px;
+  background: rgba(244, 114, 182, 0.15);
+  border: 1px solid var(--pink-border);
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--pink-primary);
+  font-size: 20px;
+  margin: 0 auto 16px;
+}
+
+.event-title {
+  font-family: "Playfair Display", serif;
+  font-size: 22px;
+  color: var(--pink-primary);
+  margin-bottom: 8px;
+}
+
+.event-info,
+.event-subinfo {
+  font-size: 13px;
+  color: var(--text-dark);
+  margin-bottom: 4px;
+}
+
+.event-location {
+  font-size: 14px;
+  margin-top: 16px;
+  font-weight: 600;
+  color: var(--text-dark);
+}
+
+.event-address {
+  font-size: 12px;
+  color: var(--text-muted);
+}
+
+.maps-wrapper {
+  margin-top: 30px;
+}
+
+.btn-maps {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 30px;
+  background: linear-gradient(135deg, #f472b6, #ec4899);
+  color: #ffffff;
+  font-weight: bold;
+  border-radius: 50px;
+  text-decoration: none;
+  font-size: 13px;
+  box-shadow: 0 4px 15px rgba(244, 114, 182, 0.4);
+}
+
+/* GALLERY SECTION */
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 16px;
+}
+
+.gallery-item {
+  height: 220px;
+  border-radius: 16px;
+  overflow: hidden;
+  border: 1px solid var(--pink-border);
+}
+
+.gallery-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s;
+}
+
+.gallery-item:hover img {
+  transform: scale(1.1);
+}
+
+/* GIFT SECTION */
+.gift-desc {
+  font-size: 12px;
+  color: var(--text-muted);
+  max-width: 400px;
+  margin: 0 auto 30px;
+}
+
+.gift-card {
+  max-width: 420px;
+  margin: 0 auto;
+  background: var(--bg-card);
+  border: 1px solid var(--pink-border);
+  padding: 24px;
+  border-radius: 24px;
+  text-align: left;
+  box-shadow: 0 10px 25px rgba(100, 116, 139, 0.05);
+}
+
+.gift-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid var(--pink-border);
+  padding-bottom: 12px;
+  margin-bottom: 16px;
+}
+
+.bank-name {
+  font-size: 20px;
+  font-weight: bold;
+  color: var(--pink-primary);
+}
+
+.rek-label {
+  font-size: 11px;
+  color: var(--text-muted);
+}
+
+.rek-box {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #f8fafc;
+  padding: 10px 14px;
+  border-radius: 10px;
+  border: 1px solid var(--pink-border);
+  margin-top: 4px;
+}
+
+.rek-num {
+  font-family: monospace;
+  font-size: 16px;
+  font-weight: bold;
+  color: var(--text-dark);
+}
+
+.btn-copy {
+  background: rgba(244, 114, 182, 0.2);
+  color: #db2777;
+  border: none;
+  padding: 6px 12px;
+  border-radius: 6px;
+  font-size: 11px;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.rek-owner {
+  font-size: 12px;
+  color: var(--text-muted);
+  margin-top: 12px;
+}
+
+/* RSVP SECTION */
+.rsvp-form {
+  max-width: 420px;
+  margin: 0 auto;
+  background: var(--bg-card);
+  border: 1px solid var(--pink-border);
+  padding: 24px;
+  border-radius: 24px;
+  text-align: left;
+  box-shadow: 0 10px 25px rgba(100, 116, 139, 0.05);
+}
+
+.form-group {
+  margin-bottom: 16px;
+}
+
+.form-group label {
+  display: block;
+  font-size: 11px;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  margin-bottom: 6px;
+  font-weight: 600;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+  width: 100%;
+  background: #f8fafc;
+  border: 1px solid var(--pink-border);
+  border-radius: 10px;
+  padding: 12px;
+  color: var(--text-dark);
+  font-family: inherit;
+  font-size: 13px;
+  outline: none;
+}
+
+.btn-submit {
+  width: 100%;
+  padding: 12px;
+  background: linear-gradient(135deg, #f472b6, #ec4899);
+  color: #ffffff;
+  font-weight: bold;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  text-transform: uppercase;
+  font-size: 12px;
+  box-shadow: 0 4px 15px rgba(244, 114, 182, 0.4);
+}
+
+/* FOOTER */
+.footer {
+  padding: 60px 0;
+  text-align: center;
+}
+
+.footer-title {
+  font-family: "Great Vibes", cursive;
+  font-size: 42px;
+  color: var(--pink-primary);
+}
+
+.footer-text {
+  font-size: 11px;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  margin-top: 4px;
+}
+
+@media (max-width: 600px) {
+  .couple-main-title {
+    font-size: 54px;
+  }
+  .section-title {
+    font-size: 26px;
+  }
+}
